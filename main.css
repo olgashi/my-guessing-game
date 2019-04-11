@@ -1,1 +1,76 @@
 /* Write your CSS code in this file */
+body {
+  background-color: rgb(11, 140, 191);
+  font-size: 16px;
+  font-family: Georgia, sans-serif;
+}
+
+header {
+  background-color: rgb(242, 60, 19)
+}
+header h1 {
+  text-align: center;
+  font-family: Ostrich Sans;
+  font-size: 48px;
+  color: white;
+
+}
+#game-window {
+  width: 800px;
+  height: auto;
+  margin: 0 auto;  
+}
+
+#subtitle {
+  text-align: center;
+  font-family: Geneva, Verdana, sans-serif;
+}
+
+#previous-guesses-box {
+  width: 500px;
+  margin: 0 auto;
+  padding: auto;
+  text-emphasis: center;
+  text-align: center;
+}
+
+#previous-guesses {
+  width: auto;
+  text-align: center;
+}
+
+#previous-guesses h4{
+  font-size: 32px;
+  font-family: Ostrich Sans;
+  color: black;
+}
+main {
+  background-color: rgb(242, 186, 19);
+  padding-top: 10px;
+}
+
+
+#button-box {
+width: 500px;
+margin: 0 auto;
+padding-bottom: 10px;
+text-align: center;
+}
+
+.button {
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#input-guess {
+  color: black;
+  background-color: transparent;
+  border: 2px solid whitesmoke;
+  border-radius: 12px;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+

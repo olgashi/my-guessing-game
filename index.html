@@ -6,16 +6,56 @@
     <title>Guessing Game</title>
     <link rel="stylesheet" href="main.css">
     <!-- the MAIN.CSS file is linked here -->
+  
   </head>
 
   <body>
+    <div id="game-window">
+    <header>
+      <h1>My Guessing Game</h1>      
+      <h3 id="subtitle">Guess a number between 1-100!</h3>
+    </header>
+
+    <main>
+        <div id='guess-feedback' class='center'>
+            <h4></h4>
+        </div>
+      <div id="previous-guesses-box">
+      <div id="previous-guesses"><h4>Previous Guesses</h4></div>
+        <ul>
+          <li>guess 1</li>
+          <li>guess 2</li>
+          <li>guess 3</li>
+          <li>guess 4</li>
+        </ul>
+        <h5>One Guess Remaining, you are close!</h5>
+      </div>
+      
+      <div id="button-box">
+        <input type="text" id="input-guess" name="enter guess here" required minlength="1" maxlength="2" size="5" autofocus=autofocus>
+        <button type="button" class="button" id="submit">Submit Guess</button>
+        <button type="button" class="button" id="play-again">Play Again</button>
+        <button type="button" class="button" id="hint">Hint</button>
+      </div>
+    
+    </main>
+
+    <footer> 
+      <div>
+        <h4>Project by Olga Shiryaeva</h4>
+      </div>
+    </footer>
+
+  </div>
 
 
 
 
-
+  <script src="js/guessing-game.js"></script>
     <!-- <script src='js/guessing-game.js'></script> -->
     <!-- uncomment the script tag above when you are ready to add JavaScript to your document -->
   </body>
 
 </html>
+
+
