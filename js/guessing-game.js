@@ -13,6 +13,7 @@ class Game {
     this.playersGuess = null;
     this.pastGuesses = [];
     this.winningNumber = generateWinningNumber();
+    this.counter = 0;
   }
 
   difference() {
@@ -25,43 +26,45 @@ class Game {
 
   playersGuessSubmission(num) {
     if (num > 100 || num < 1 || isNaN(num)){
-      throw 'That is an invalid guess.';
+      return 'That is an invalid guess. Try again.';
     }
     this.playersGuess = num;
-    
     return this.checkGuess();
     
   }
+  updateGuesses(){
+    let guess = document.getElementById(`guess${this.pastGuesses.length}`);
+    guess.innerHTML = this.playersGuess;
+  }
 
   checkGuess() {
-
-    let resultString = '';
-  
     if (this.playersGuess === this.winningNumber) {
-        resultString = 'You Win!';
+        return 'You Win!';
 
       } else if (this.pastGuesses.includes(this.playersGuess)) {
-        resultString = 'You have already guessed that number.';
+        return 'You have already guessed that number.';
       }
-    else { 
-      this.pastGuesses.push(this.playersGuess);    
-      
-      if (this.playersGuessSubmission.length === 5) {
-        resultString = 'You Lose';
-        } else {
-        let numDifference = this.difference();
-    
-        if (numDifference < 10 ) resultString = 'You\'re burning up!';
-        else if (numDifference < 25 ) resultString = 'You\'re lukewarm.';
-        else if (numDifference < 50 ) resultString = 'You\'re a bit chilly.';
-        else resultString = 'You\'re ice cold!';
-      }
+    this.pastGuesses[this.counter] = this.playersGuess;
+    this.counter += 1;
+    this.updateGuesses(); 
+  
+    if  (this.pastGuesses.length === 6) {
+      return 'You are out of guesses.';
     }
+  
+    if  (this.pastGuesses.length > 5) {
+      // reset the game here
+      return 'You Lost. Restart the game.';
+    }   
+  
+    let numDifference = this.difference();
+  
+      if (numDifference < 10 ) return 'You\'re burning up!';
+        else if (numDifference < 25 ) return 'You\'re lukewarm.';
+        else if (numDifference < 50 ) return 'You\'re a bit chilly.';
+        else return 'You\'re ice cold!';
 
-    document.querySelector('#guess-feedback > h4').innerHTML = resultString;
-document.querySelector(`#previous-guesses li:nth-child(${this.pastGuesses.length})`).innerHTML = this.playersGuess;
-
-  return resultString;
+  // return resultString;
   }
 
   provideHint() {
@@ -72,12 +75,19 @@ document.querySelector(`#previous-guesses li:nth-child(${this.pastGuesses.length
     ];
     return shuffle(hintArray);
   }
+
+  displayHint() {
+    let hintArray = this.provideHint();
+
+    return `Winning number is one of the following: ${hintArray[0]}, ${hintArray[1]}, ${hintArray[2]}`;
+  }
+
 }
 
 function generateWinningNumber (){
   return Math.ceil(Math.random() * 100);
 }
-
+//refactor
 function shuffle (myArray){
   let arraySize = myArray.length;
   let t = undefined;
@@ -97,25 +107,120 @@ function newGame(){
   return new Game();
 }
 
-// function addGuess(guess, id) {
-//   let newGuess = document.getElementById(`${id}`);
-//   newGuess.innerHTML = guess;
-// }
+//Function that updates #guess-feedback
+function updateGuessfeedback(message, game) {
+  let feedback = document.getElementById('feedback');
+  if (game.pastGuesses.length === 5) {
+    message = "You are out of guesses, click 'PLAY AGAIN' to start a new game."
+  }
+  feedback.innerHTML = `${message}`;
+}
 
-function playGame(){
-  const game = newGame();
+//take input from the user and clear the input box
+function getInputAndUpdate(inputElement, game) {
+  const text = inputElement.value;
+  inputElement.value = '';
+  const moveMessage = game.playersGuessSubmission(parseInt(text, 10));
 
-   // We are grabbing the button from our html
-   const button = document.getElementById('submit');
+  console.log(moveMessage);
+  updateGuessfeedback(moveMessage, game);
+}
 
-   // We are listening for when the use clicks on our button.
-   // When they click, we will check in the input field to see if they have guessed a number. Then we will run the function `checkGuess`, and give it the player's guess, the winning number, and the empty array of guesses!
-   button.addEventListener('click', function() {
-     const playersGuess = document.getElementById('input-guess').value;
-     document.querySelector('#input-guess').value = '';
- 
-     game.playersGuessSubmission(playersGuess);
-   });
- }
+function resetInputBox(inputElement){
+  inputElement.value = '';
+}
 
+//update list of guesses as guesses being submitted
+
+function clearGuesses(game){
+  for (let i = 1; i < game.pastGuesses.length+1; i++){
+    let guess = document.getElementById(`guess${i}`);
+    guess.innerHTML = '';
+  }
+}
+
+//update number of guesses remaining
+
+function guessesRemaining(game){
+  let message = '';
+  // let numberOfMoves = 0;
+  
+  if (game.checkGuess() === 'You Lost. Restart the game.') {
+    message = '';
+  }
+  
+  else if (game.pastGuesses.length === 1) { 
+    message = `You have 4 more guesses remaining.`;
+  }
+  else if (game.pastGuesses.length === 4) { 
+    message = `You have 1 more guess remaining.`;
+  }
+  else if (game.pastGuesses.length > 1 && game.pastGuesses.length < 5) {
+    message = `You have ${5 - game.pastGuesses.length} more guesses remaining.`;
+  }
+//How to make that line not shrink when this condition met?
+  else if (game.pastGuesses.length === 5) {
+    //alternative
+    //message = 'You have 0 guesses remaining';
+    message = '';
+  }  
+
+  let remaining = document.getElementById('guess-remaining');
+  remaining.innerHTML = message;
+
+}
+
+function lostMessage() {
+  return "You lost, please click 'PLAY AGAIN' to play a new game";
+}
+
+function clearOldGame(inputElement,game) {
+  game.pastGuesses = [];
+  game.winningNumber = generateWinningNumber();
+
+  resetInput(inputElement); 
+}
+
+//game simulation
+function playGame() {
+  let game = newGame();
+
+//submit button
+  const submitButton = document.getElementById('submit');
+
+  submitButton.addEventListener('click', function() {
+
+    const inputElement = document.querySelector('input');
+    
+    getInputAndUpdate(inputElement, game);
+    guessesRemaining(game);
+  });
+
+  //play again button
+
+  const playAgainButton = document.getElementById('play-again');
+    
+  playAgainButton.addEventListener('click', function() {
+    
+    
+    const inputElement = document.querySelector('input');
+    //
+    clearGuesses(game);
+    clearOldGame(inputElement, game);    
+    //
+    getInputAndUpdate(inputElement, game);
+    guessesRemaining(game);
+
+});
+
+//hint button
+const hintButton = document.getElementById('hint');
+hintButton.addEventListener('click', function () {
+
+  const hint = document.getElementById('hint-message');
+  
+  let message = game.displayHint();
+  hint.innerHTML = message;
+});
+}
 playGame();

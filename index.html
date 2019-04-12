@@ -11,34 +11,42 @@
 
   <body>
     <div id="game-window">
-    <header>
-      <h1>My Guessing Game</h1>      
-      <h3 id="subtitle">Guess a number between 1-100!</h3>
-    </header>
+    
+    
+      <header>
+      <h1 id="main-title">My Guessing Game</h1>      
+      <!-- <h3 id="subtitle">Guess a number between 1-100!</h3> -->
+      </header>
 
-    <main>
+    <div id="main">
         <div id='guess-feedback' class='center'>
-            <h4></h4>
+            <h4 id="feedback">Guess a number between <span class="number">1</span> and <span class="number">100</span></h4>
         </div>
       <div id="previous-guesses-box">
-      <div id="previous-guesses"><h4>Previous Guesses</h4></div>
-        <ul>
-          <li>guess 1</li>
-          <li>guess 2</li>
-          <li>guess 3</li>
-          <li>guess 4</li>
-        </ul>
-        <h5>One Guess Remaining, you are close!</h5>
-      </div>
+      <div id="previous-guesses-title"><h4>Previous Guesses</h4></div>
+        
+      <div id="previous-guesses-inner-box">
+          <div id="guess1" class="guess"></div>
+          <div id="guess2" class="guess"></div>
+          <div id="guess3" class="guess"></div>
+          <div id="guess4" class="guess"></div>
+          <div id="guess5" class="guess"></div>
+        </div>
+        
+        <div id="guess-remaining"><h5>You have 5 guesses remaining.</h5></div>
+          
+      
       
       <div id="button-box">
-        <input type="text" id="input-guess" name="enter guess here" required minlength="1" maxlength="2" size="5" autofocus=autofocus>
+        <input type="text" id="input-guess" name="enter guess here" required minlength="1" maxlength="2" size="2">
         <button type="button" class="button" id="submit">Submit Guess</button>
         <button type="button" class="button" id="play-again">Play Again</button>
         <button type="button" class="button" id="hint">Hint</button>
       </div>
-    
-    </main>
+
+      <div id="hint-box"><h3 id='hint-message'>Click 'Hint' if you need help.</h3></div>
+    </div>
+    </div>
 
     <footer> 
       <div>
