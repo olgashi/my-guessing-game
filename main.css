@@ -38,7 +38,7 @@
 }
 
 body {
-  background-color: rgb(11, 140, 191);
+  background-color:#D98282;
   width: auto;
   height: auto;
   font-family: Georgia, sans-serif;
@@ -66,14 +66,14 @@ header h1 {
 }
 
 #main {
-  background-color: rgb(242, 186, 19);
+  background-color: #BF9004;
   width: 800px;
 }
 
 #guess-feedback {
   width: 500px;
   height: 50px;
-  background-color: brown;
+  background-color: #0367A6;
   margin: 0 auto;
   text-align: center;
 }
@@ -84,9 +84,7 @@ header h1 {
   font-size: 18px;
   letter-spacing: 1px;
 }
-.number {
-  color: blue;
-}
+
 
 #previous-guesses-box {
   width: 500px;
@@ -97,7 +95,7 @@ header h1 {
 #previous-guesses-title {
   height: 50px;
   text-align: center;
-  background: yellow;
+  background: #0367A6;
 }
 
 #previous-guesses-title h4{
@@ -111,13 +109,13 @@ header h1 {
   height: 30px;
   text-align: center;
   padding-top: 20px;
-  background: lightskyblue;
+  background: #0367A6;
  
 
 }
 #user-guesses {
   height: 80px;
-  background: plum;
+  background: #0367A6;
   text-align: center;
   padding-top: 40px;
 }
@@ -126,18 +124,18 @@ header h1 {
 width: 500px;
 height: 150px;
 text-align: center;
-background: lightcoral;
+background: #0367A6;
 }
 
 #buttons{
   margin-top: 35px;
-  background-color: blueviolet;
+  color: blueviolet;
 }
 #hint-box{
 height: 110px;
 width: 500px;
 text-align: center;
-background: lightcoral;
+background: #0367A6;
 }
 
 .button {
@@ -174,6 +172,7 @@ ul {
 .guess {
   display: inline-block;
   padding-right: 10px;
+  border: 1px solid black;
   font-size: 54px;
   font-family: 'sf_arch_rivalregular', Georgia, Times, 'Times New Roman', serif;
 }
@@ -182,7 +181,7 @@ ul {
 #hint-box {
   text-align: center;
   height: 70px;
-  background-color: aquamarine;
+  background-color: #0367A6;
   padding-top: 20px;
 }
 #hint-message {
@@ -190,14 +189,21 @@ ul {
 }
 
 footer {
-  background-color: green;
+  background-color: #8C0E03;
   height: 90px;
+}
+
+#project-name, #github-link {
+  display: inline-block;
 }
 
 #project-name {
   /* padding-top: 20px; */
   background-color: firebrick;
+  padding-left: 30px;
 }
-#project-name, #github-link {
-  display: inline-block;
+
+#github-link {
+  background-color: yellow;
+  margin-top: 30px;
 }
