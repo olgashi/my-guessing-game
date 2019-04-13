@@ -14,18 +14,20 @@
     
     
       <header>
-      <h1 id="main-title">My Guessing Game</h1>      
+      <h1>My Guessing Game</h1>      
       <!-- <h3 id="subtitle">Guess a number between 1-100!</h3> -->
       </header>
 
     <div id="main">
+
         <div id='guess-feedback' class='center'>
-            <h4 id="feedback">Guess a number between <span class="number">1</span> and <span class="number">100</span></h4>
+            <h4 id="feedback">Guess a number between <span class="number">1</span> and <span class="number">99</span></h4>
         </div>
+
       <div id="previous-guesses-box">
       <div id="previous-guesses-title"><h4>Previous Guesses</h4></div>
         
-      <div id="previous-guesses-inner-box">
+        <div id="user-guesses">
           <div id="guess1" class="guess"></div>
           <div id="guess2" class="guess"></div>
           <div id="guess3" class="guess"></div>
@@ -39,18 +41,26 @@
       
       <div id="button-box">
         <input type="text" id="input-guess" name="enter guess here" required minlength="1" maxlength="2" size="2">
-        <button type="button" class="button" id="submit">Submit Guess</button>
-        <button type="button" class="button" id="play-again">Play Again</button>
-        <button type="button" class="button" id="hint">Hint</button>
+        <div id="buttons">
+          <button type="button" class="button" id="submit">Submit Guess</button>
+          <button type="button" class="button" id="play-again">Play Again</button>
+          <button type="button" class="button" id="hint">Hint</button>
+        </div>
       </div>
 
       <div id="hint-box"><h3 id='hint-message'>Click 'Hint' if you need help.</h3></div>
-    </div>
+      </div>
     </div>
 
     <footer> 
       <div>
-        <h4>Project by Olga Shiryaeva</h4>
+        <div id="project-name"><h4>Project by Olga Shiryaeva</h4> </div>
+        <div id="github-link">
+          <a href="https://github.com/olgashi/my-guessing-game">
+          <img src="img/GitHub-Mark-64px.png" alt="see project on GitHub" style="width:42px;height:42px;border:0;">
+          </a>
+        </div>
+
       </div>
     </footer>
 

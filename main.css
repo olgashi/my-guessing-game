@@ -1,155 +1,141 @@
 /* Write your CSS code in this file */
 @font-face {
-  font-family: 'Ostrich Sans';
-  src: url('fonts/OstrichSans-Bold.eot');
-  src: local('Ostrich Sans Bold'), local('OstrichSans-Bold'),
-      url('fonts/OstrichSans-Bold.eot?#iefix') format('embedded-opentype'),
-      url('fonts/OstrichSans-Bold.woff2') format('woff2'),
-      url('fonts/OstrichSans-Bold.woff') format('woff'),
-      url('fonts/OstrichSans-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'simpelmedium';
-  src: url('simpel-medium-webfont.eot');
-  src: url('simpel-medium-webfont.eot?#iefix') format('embedded-opentype'),
-       url('simpel-medium-webfont.woff2') format('woff2'),
-       url('simpel-medium-webfont.woff') format('woff'),
-       url('simpel-medium-webfont.svg#simpelmedium') format('svg');
+  font-family: 'ultraregular';
+  src: url('fonts/Ultra-webfont.eot');
+  src: url('fonts/Ultra-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Ultra-webfont.woff2') format('woff2'),
+       url('fonts/Ultra-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'seasideresortnfregular';
-  src: url('fonts/SEASRN__-webfont.eot');
-  src: url('fonts/SEASRN__-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/SEASRN__-webfont.woff2') format('woff2'),
-       url('fonts/SEASRN__-webfont.woff') format('woff'),
-       url('fonts/SEASRN__-webfont.ttf') format('truetype'),
-       url('fonts/SEASRN__-webfont.svg#seasideresortnfregular') format('svg');
+  font-family: 'sf_arch_rivalregular';
+  src: url('fonts/SF_Arch_Rival-webfont.eot');
+  src: url('fonts/SF_Arch_Rival-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/SF_Arch_Rival-webfont.woff2') format('woff2'),
+       url('fonts/SF_Arch_Rival-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'sansation_lightlight';
-  src: url('fonts/Sansation-Light-webfont.eot');
-  src: url('fonts/Sansation-Light-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/Sansation-Light-webfont.woff2') format('woff2'),
-       url('fonts/Sansation-Light-webfont.woff') format('woff'),
-       url('fonts/Sansation-Light-webfont.ttf') format('truetype'),
-       url('fonts/Sansation-Light-webfont.svg#sansation_lightlight') format('svg');
+  font-family: 'hvd_bodedomedium';
+  src: url('HVD_Bodedo-webfont.eot');
+  src: url('HVD_Bodedo-webfont.eot?#iefix') format('embedded-opentype'),
+       url('HVD_Bodedo-webfont.woff2') format('woff2'),
+       url('HVD_Bodedo-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
 
+
+
+
+*
+{
+  margin:0px;
+  padding: 0px;
 }
 
 body {
   background-color: rgb(11, 140, 191);
-  font-size: 16px;
   width: auto;
   height: auto;
-  /* font-family: Georgia, sans-serif; */
+  font-family: Georgia, sans-serif;
+}
+#game-window {
+  width: 800px;
+  height: 700px;
+  margin: 0 auto;
+  background-color: aliceblue;  
 }
 
 header {
   background-color: rgb(242, 60, 19);
-  height: auto;
-  text-align: center;
-  
-  font-size: 34px;
   color: white;
+  margin-top: 10px;
  }
 
 header h1 {
-  font-family: 'Ostrich Sans';
-  font-weight: bold;
-  font-style: normal;
-  width: 800px;
-  height: 100px;
-  padding-top: 10px;
+  font-family: 'ultraregular';
+  height: 80px;
+  padding-top: 20px;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 3px;
 }
 
 #main {
   background-color: rgb(242, 186, 19);
-  padding-top: 10px;
-  /* background: darkgr; */
-}
-
-#game-window {
   width: 800px;
-  height: 600px;
-  margin: 0 auto;  
 }
 
-/* #subtitle {
+#guess-feedback {
+  width: 500px;
+  height: 50px;
+  background-color: brown;
+  margin: 0 auto;
   text-align: center;
-  font-family: Geneva, Verdana, sans-serif;
-} */
+}
 #feedback {
-  text-align: center;
+  padding-top: 10px;
   color: black;
-  font-family: 'sansation_lightlight',  Georgia, Times, 'Times New Roman', serif;
-  /* font-family: 'simpelmedium', Georgia, Times, 'Times New Roman', serif; */
-  font-size: 26px;
-  letter-spacing: 4px;
-  /* font-style: italic; */
+  font-family: 'hvd_bodedomedium', Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 .number {
   color: blue;
 }
 
 #previous-guesses-box {
-  height: 580px;
   width: 500px;
   margin: 0 auto;
-  padding: auto;
-  text-emphasis: center;
-  text-align: center;
   background: red;
 }
 
 #previous-guesses-title {
   height: 50px;
-  width: 500px;
   text-align: center;
   background: yellow;
 }
 
 #previous-guesses-title h4{
   font-size: 22px;
-  font-family: 'seasideresortnfregular',  Georgia, Times, 'Times New Roman', serif;
+  font-family: 'sf_arch_rivalregular', Georgia, Times, 'Times New Roman', serif;
   letter-spacing: 2px;
   color: black;
 }
 
 #guess-remaining {
-  height: 50px;
-  width: 500px;
+  height: 30px;
+  text-align: center;
+  padding-top: 20px;
   background: lightskyblue;
  
 
 }
-#previous-guesses-inner-box {
-  height: 100px;
+#user-guesses {
+  height: 80px;
   background: plum;
+  text-align: center;
+  padding-top: 40px;
 }
 
 #button-box {
 width: 500px;
-height: 90px;
-margin: 0 auto;
-padding-top: 50px;
-/* padding-bottom: 10px; */
+height: 150px;
 text-align: center;
 background: lightcoral;
 }
+
+#buttons{
+  margin-top: 35px;
+  background-color: blueviolet;
+}
 #hint-box{
-height: 140px;
+height: 110px;
 width: 500px;
-margin: 0 auto;
-/* padding-bottom: 10px; */
 text-align: center;
 background: lightcoral;
 }
@@ -160,29 +146,24 @@ background: lightcoral;
   border: 2px solid black;
   border-radius: 5px;
   text-transform: uppercase;
-  font-size: 16px;
-  margin-right: 20px;
-  padding: 10px;
+  font-size: 18px;
 }
+
+#submit, #play-again {
+  margin-right: 40px;
+}
+
 #input-guess {
   color: black;
   background-color: transparent;
   border: 1px ridge gainsboro;
-  /* border-radius: 30px; */
   text-transform: uppercase;
-  font-family: 'seasideresortnfregular',  Georgia, Times, 'Times New Roman', serif;
+  font-family: 'sf_arch_rivalregular', Georgia, Times, 'Times New Roman', serif;
   font-size: 28px;
-  margin-right: 20px;
+  margin-top: 10px;
 }
 #input-guess:hover, .button:hover {
   background-color: white;
-}
-
-
-#main-title, #guess-remaining, #previous-guesses-title {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
 }
 
 ul {
@@ -191,17 +172,32 @@ ul {
   text-align: center;
 }
 .guess {
-  padding-top: 25px;
-  padding-right: 10px;
   display: inline-block;
-  font-size: 36px;
-  font-family: 'seasideresortnfregular',  Georgia, Times, 'Times New Roman', serif;
+  padding-right: 10px;
+  font-size: 54px;
+  font-family: 'sf_arch_rivalregular', Georgia, Times, 'Times New Roman', serif;
 }
+
 
 #hint-box {
   text-align: center;
+  height: 70px;
+  background-color: aquamarine;
+  padding-top: 20px;
 }
 #hint-message {
-  padding-top: 50px;
-  font-family: 'sansation_lightlight'; 
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+footer {
+  background-color: green;
+  height: 90px;
+}
+
+#project-name {
+  /* padding-top: 20px; */
+  background-color: firebrick;
+}
+#project-name, #github-link {
+  display: inline-block;
 }
